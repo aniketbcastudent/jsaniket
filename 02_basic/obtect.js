@@ -1,4 +1,4 @@
-//singleton makeing construter created by thids key word(object.create)
+//singleton makeing construter created by this key word(object.create)
 //object literals
 
 //object literals
