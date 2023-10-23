@@ -51,6 +51,24 @@ console.log(Object.entries(tinderuser));
 
 console.log(tinderuser.hasOwnProperty('isloggin'));//return true 
 
+ const cource ={
+    courcename:"js ",
+    price:"233",
+    courceInstructor:"aniket"
+ }
+//  cource.courceInstructor
+// const{courceInstructor}=cource;
+// console.log(courceInstructor :teacher)=cource//desturing
+// console.log(teacher);
+
+// const nav_bar (props.compny)=>{
+
+// }
+// const nav_bar ({compny})=>{//desturcing
+
+// }
+// nav_bar(compny="aniket")
+
 
 
 
