@@ -1,0 +1,107 @@
+
+import './App.css';
+import { useState } from 'react';
+
+function App() {
+  // const [firstname, setfirstname]=useState("");
+  // const [lastname,setlastname]=useState("");
+  // console.log(firstname);
+  // console.log(lastname);
+
+
+  // function changeFirstHandler(event){
+  //   console.log(event.target.value);
+  // }
+
+
+  // function changeLastHandler(event){
+  //   console.log(event.target.value);
+  // }
+
+  const [formData,setFormData]= useState({firstName:"",lastName:"",email:"",comment:"",isvasible:false,mode:"",favCar:""});
+  // console.log(formData)
+  function changeHandler(event){
+    const {name,value,checked,type}=event.target//desturcing
+    setFormData(prevFromData=>{
+      return{
+          ...prevFromData,
+          // [event.target.name]:event.target.value
+          [name]:type==="checkbox"?checked:value
+      }
+    });
+  }
+  function submitHandler(event){
+     event.preventDefault();
+     //print
+     console.log("finally printing the data");
+     console.log(formData)
+  }
+  return (
+    <div className="App">
+        <form onSubmit={submitHandler}>
+          <input type="text"placeholder='first name'
+          onChange={changeHandler}
+          name="firstName"
+          value={formData.firstName}
+          />
+          
+           
+          <input type="text"placeholder='last name'
+          onChange={changeHandler}
+          name="lastName"
+          value={formData.lastName}
+          />
+          <input type="email"placeholder='enter email'onChange={changeHandler} name='email' value={formData.email}/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <textarea 
+          placeholder='comment'
+          onChange={changeHandler}
+          name='comment'
+          value={formData.comment}
+          />
+          <input type="checkbox" name='isvasible' onChange={changeHandler}  id='isvasible' checked={formData.isvasible}/>
+          <label htmlFor='isvasible'>Am i visible</label>
+        <br/>
+        <input
+        type='radio'
+        onChange={changeHandler}
+        name='mode'
+        value="online-mode"
+        id="online-mode"
+        checked={formData.mode ==="online-mode"}
+        />
+        <label htmlFor="online-mode">online mode</label>
+        <input
+        type='radio'
+        onChange={changeHandler}
+        checked={formData.mode ==="offline-mode"}
+
+        name='mode'
+        value="offline-mode"
+        id="offline-mode"/>
+        <label htmlFor="online-mode">offline mode</label>
+       <select
+       name='favCar'
+       id='favCar'
+       onChange={changeHandler}
+       value={formData.favCar}
+       >
+      <option value="scorpio">scorpio</option>
+      <option value="a">a</option>
+      <option value="b">b</option>
+      <option value="c">c</option>
+      <option value="d">d</option>
+      
+       </select>
+       {/* <input type='submit'value="submit"/> */}
+       <button>Submit</button>
+      
+        </form>
+    </div>
+  );
+}
+
+export default App;
